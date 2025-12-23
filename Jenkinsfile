@@ -2,7 +2,7 @@ pipeline{
     agent none
    
     environment{
-       BUILD_SERVER_IP='ec2-user@172.31.13.225'
+       BUILD_SERVER_IP='ec2-user@172.31.8.89'
        IMAGE_NAME='kalyani145/java-mvn-privaterepos:php$BUILD_NUMBER'
        DEPLOY_SERVER_IP='ec2-user@172.31.13.82'
     }
