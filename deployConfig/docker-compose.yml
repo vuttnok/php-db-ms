@@ -1,7 +1,7 @@
 version: "3"
 services:
    web:
-     image: "${DOCKER_IMAGE}"
+     image: "${DOCKER_IMAGE}:latest"
      ports:
      - "8001-8002:80"
      deploy:
@@ -9,7 +9,7 @@ services:
      depends_on:
      - mysql
    mysql:
-     image: kalyani145/java-mvn-privaterepos:mysql:latest
+     image: kalyani145/java-mvn-privaterepos:mysql:8.0
      volumes:
      - db_data:/var/lib/mysql
      environment:
