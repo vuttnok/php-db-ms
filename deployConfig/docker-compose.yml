@@ -9,7 +9,7 @@ services:
      depends_on:
      - mysql
    mysql:
-     image: kalyani145/java-mvn-privaterepos:mysql
+     image: kalyani145/java-mvn-privaterepos:mysql:latest
      volumes:
      - db_data:/var/lib/mysql
      environment:
