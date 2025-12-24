@@ -14,14 +14,14 @@ pipeline{
             steps{
                 script{
                 sshagent(['slave2']) {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub1', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+               // withCredentials([usernamePassword(credentialsId: 'docker-hub1', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                 echo "Building the php image"
                 sh "scp -o StrictHostKeyChecking=no -r BuildConfig ${BUILD_SERVER_IP}:/home/ec2-user"
                 sh "ssh -o StrictHostKeyChecking=no ${BUILD_SERVER_IP} 'bash ~/BuildConfig/docker-script.sh'"
                 sh "ssh ${BUILD_SERVER_IP} sudo docker build -t ${IMAGE_NAME} /home/ec2-user/BuildConfig/"
-                sh "ssh ${BUILD_SERVER_IP} sudo docker login -u $USERNAME -p $PASSWORD"
+                //sh "ssh ${BUILD_SERVER_IP} sudo docker login -u $USERNAME -p $PASSWORD"
                 sh "ssh ${BUILD_SERVER_IP} sudo docker push ${IMAGE_NAME}"
-                }
+              //  }
             }
         }
     }
