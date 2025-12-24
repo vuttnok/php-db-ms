@@ -1,4 +1,5 @@
-from php:8.2-apache
+//from php:8.2-apache
+from nginx
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 copy index.php /var/www/html
 expose 80
